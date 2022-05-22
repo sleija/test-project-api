@@ -1,0 +1,45 @@
+# 1) Define the security scheme type (HTTP bearer)
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+
+  # 2) Apply the security globally to all operations
+  security:
+    - BearerAuth: []
+
+definitions:
+  # Schema for error response body
+  Error:
+    type: object
+    properties:
+      status:
+        type: string
+      code:
+        type: string
+      message:
+        type: string
+    required:
+      - status
+      - code
+      - message
+
+# Descriptions of common responses
+responses:
+  BadRequest:
+    description: The request was wrongly formatted
+    schema:
+      $ref: "#/definitions/Error"
+  Unauthorized:
+    description: The request was not authorized
+    schema:
+      $ref: "#/definitions/Error"
+  Forbidden:
+    description: The user is forbidden to access the resource
+    schema:
+      $ref: "#/definitions/Error"
+  NotFound:
+    description: The requested resource was not found
+    schema:
+      $ref: "#/definitions/Error"

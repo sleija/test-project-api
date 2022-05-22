@@ -1,0 +1,8 @@
+components:
+  schemas:
+    ShoppingCart:
+      type: object
+      properties:
+        userId:
+          type: string
+      additionalProperties: false

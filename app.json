@@ -1,0 +1,10 @@
+{
+  "buildpacks": [
+    {
+      "url": "https://github.com/nice-registry/npm-buildpack"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
