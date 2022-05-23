@@ -1,7 +1,7 @@
 {
-  "name": "sports-supply-api",
+  "name": "test-project-api",
   "version": "1.0.0",
-  "description": "The API for Sports Supply",
+  "description": "The API for Test Project",
   "main": "src/index.ts",
   "private": "true",
   "engines": {
