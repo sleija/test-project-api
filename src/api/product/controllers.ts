@@ -3,7 +3,7 @@ import {
 } from './models'
 
 export async function getAllProducts(): Promise<Product[]> {
-  const products = (await ProductModel.findAll({raw: true}) as unknown) as Product[]
+  const products = (await ProductModel.findAll({order: ['name'], raw: true}) as unknown) as Product[]
   return products
 }
 
