@@ -2,17 +2,12 @@ import { Model, DataTypes, UUIDV4 } from 'sequelize'
 import sequelize, { commonModelOptions } from '../../services/sequelize'
 // import { UserSettingsModel } from '../user/models'
 
-export const enum ProductStatus {
-  InProgress = 'ACTIVE',
-  Paid = 'INACTIVE',
-}
-
 export interface Product {
   productId?: string
   name: string
   description: string
   price: number
-  status: ProductStatus
+  active: boolean
 }
 
 export type ProductInstance = Model<Product>
@@ -38,9 +33,9 @@ export const ProductModel = sequelize.define<ProductInstance>(
       type: DataTypes.DOUBLE,
       allowNull: false,
     },
-    status: {
-      type: DataTypes.ENUM('ACTIVE', 'INACTIVE'),
-      allowNull: false,
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   },
   {
